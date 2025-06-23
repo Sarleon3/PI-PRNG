@@ -4,7 +4,7 @@ import java.util.Random;
 public class Algoritm_Devita_beyli {
 
     public static void main(String[] args) {
-        int maxPosition = 1000;  // максимальная позиция (число цифр)
+        int maxPosition = 10000;  // максимальная позиция (число цифр)
         int step = 3;          // шаг по 3 цифры
         Random rand = new Random();
         for (int startId = 0; startId <= maxPosition; startId += step) {
@@ -26,6 +26,16 @@ public class Algoritm_Devita_beyli {
             }
             System.out.println();
         }
+    }
+
+    public double computePid(int pos) {
+        double s1 = series(1, pos);
+        double s2 = series(4, pos);
+        double s3 = series(5, pos);
+        double s4 = series(6, pos);
+        double pid = 4.0 * s1 - 2.0 * s2 - s3 - s4;
+        pid = pid - (int) pid + 1.0;
+        return pid;
     }
 
 
